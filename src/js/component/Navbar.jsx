@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 const Navbar = props => {
 	return (
-		<nav class="navbar navbar-expand-lg navbar-light bg-light container">
+		<nav class="navbar navbar-expand-lg navbar-light container bg-dark">
 			<a class="navbar-brand" href="#">
-				Start Bootstrap
+				{props.title}
 			</a>
 			<button
 				class="navbar-toggler"
@@ -23,22 +23,22 @@ const Navbar = props => {
 				<ul class="navbar-nav">
 					<li class="nav-item active">
 						<a class="nav-link" href="#">
-							<span class="sr-only">Home</span>
+							{props.link1}
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">
-							About
+							{props.link2}
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">
-							Services
+							{props.link3}
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">
-							Contact
+							{props.link4}
 						</a>
 					</li>
 				</ul>

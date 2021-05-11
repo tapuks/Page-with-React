@@ -5,9 +5,14 @@ import Navbar from "./Navbar.jsx";
 //create your first component
 export function Home() {
 	return (
-		<div className="text-center mt-5">
-			<h1>Hola</h1>
-			<Navbar />
+		<div className="text-center container">
+			<Navbar
+				title="Start Bootstrap"
+				link1="Home"
+				link2="About"
+				link3="Services"
+				link4="Contact"
+			/>
 		</div>
 	);
 }
