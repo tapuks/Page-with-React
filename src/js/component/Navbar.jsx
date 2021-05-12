@@ -3,41 +3,41 @@ import PropTypes from "prop-types";
 
 const Navbar = props => {
 	return (
-		<nav class="navbar navbar-expand-lg navbar-light container bg-dark">
-			<a class="navbar-brand" href="#">
+		<nav className=" navbar navbar-expand-lg navbar-light bg-dark">
+			<a className="navbar-brand navbar-title" href="#">
 				{props.title}
 			</a>
 			<button
-				class="navbar-toggler"
+				className="navbar-toggler navbar-title"
 				type="button"
 				data-toggle="collapse"
 				data-target="#navbarNav"
 				aria-controls="navbarNav"
 				aria-expanded="false"
 				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+				<span className="navbar-toggler-icon"></span>
 			</button>
 			<div
-				class="collapse navbar-collapse d-flex justify-content-end"
+				className="collapse navbar-collapse d-flex justify-content-end navbar-title"
 				id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">
+				<ul className="navbar-nav ">
+					<li className="nav-item active">
+						<a className="nav-link navbar-title" href="#">
 							{props.link1}
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">
+					<li className="nav-item">
+						<a className="nav-link navbar-title" href="#">
 							{props.link2}
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">
+					<li className="nav-item">
+						<a className="nav-link navbar-title" href="#">
 							{props.link3}
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">
+					<li className="nav-item">
+						<a className="nav-link navbar-title" href="#">
 							{props.link4}
 						</a>
 					</li>
