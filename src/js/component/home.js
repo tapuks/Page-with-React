@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar.jsx";
 import Card from "./Card.jsx";
 import Footer from "./Footer.jsx";
 import { Container, Row, Col, Modal, Button } from "react-bootstrap";
 import hallowen from "../../img/hallowen.png";
-import chucky from "../../img/chucky.png";
+import chucky from "../../img/chucky3.png";
 import Chucky from "./Chucky.js";
 import cuchillo from "../../img/cuchillo.png";
 import { array } from "prop-types";
@@ -15,6 +15,7 @@ export function Home() {
 	const [modalChucky, setModalChucky] = useState(false);
 	const [modalGameChuky, setModalGameChucky] = useState(false);
 	const [gameChuky, setGameChucky] = useState(false);
+	const [contadorGameChuky, setContadorGameChucky] = useState(30);
 
 	const modal = () => {
 		return (
@@ -45,17 +46,41 @@ export function Home() {
 			</Modal.Dialog>
 		);
 	};
+
 	const cuchillos = () => {
 		let array = [];
 		for (let i = 1; i < 100; i++) {
 			array.push(
-				<span>
-					<img className="img-cuchillo" src={cuchillo}></img>
+				<span className="mx-2">
+					<img
+						// ref={refchuchillo}
+						// onClick={}
+						className="img-cuchillo"
+						src={cuchillo}></img>
 				</span>
 			);
 		}
 		return array;
 	};
+
+	// useEffect(() => {
+	// 	if (gameChuky == true) {
+	// 		setInterval(() => {
+	// 			setContadorGameChucky(contadorGameChuky - 1);
+	// 		}, 1000);
+	// 	}
+	// }, [gameChuky]);
+
+	useEffect(() => {
+		if (contadorGameChuky == 30) {
+			const interval = setInterval(() => {
+				setContadorGameChucky(
+					contadorGameChuky => contadorGameChuky - 1
+				);
+			}, 1000);
+			return () => clearInterval(interval);
+		}
+	}, [gameChuky]);
 
 	return (
 		<Container>
@@ -72,15 +97,23 @@ export function Home() {
 				<Col>
 					<img className="img-title" src={hallowen}></img>
 				</Col>
-				{/* <Col></Col> */}
 			</Row>
+
+			{/* Game chucky */}
 			{gameChuky == true ? (
-				<Row className="mt-5">
-					<Col></Col>
+				<Row className="">
+					{/* {IntervalExample()} */}
+					<Col className="row-game-chucky">{cuchillos()}</Col>
 					<Col>
-						<img className="chucky" src={chucky}></img>
+						<img
+							className="chucky animation-chucky"
+							src={chucky}></img>
 					</Col>
-					<Col>{cuchillos()}</Col>
+					<Col>
+						<h1 className="row-game-chucky time-game">
+							{contadorGameChuky}
+						</h1>
+					</Col>
 				</Row>
 			) : (
 				<Row className="">
@@ -104,6 +137,7 @@ export function Home() {
 									onClick={() => {
 										setModalGameChucky(false);
 										setGameChucky(true);
+										setContadorGameChucky(30);
 									}}
 									variant="primary">
 									Entendido

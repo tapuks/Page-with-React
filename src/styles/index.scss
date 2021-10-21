@@ -1,6 +1,9 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-
+@font-face {
+    font-family: Halloween;
+    src: url(../fonts/Halloween_Morning.ttf);
+}
 body {
     // background-image: url("https://fondosmil.com/fondo/63700.jpg");
     // background-repeat: no-repeat;
@@ -51,6 +54,7 @@ body {
     width: 8rem;
     cursor: pointer;
     margin-top: 300px !important;
+    position: relative;
 }
 h1{
     
@@ -58,4 +62,28 @@ h1{
 }
 .img-cuchillo {
     width: 3rem;
+    cursor: pointer;
+}
+.row-game-chucky {
+    margin-top: 200px !important;
+}
+.time-game {
+    font-family: Halloween;
+    font-size: 150px;
+    color: red;
+    margin-top: 300px !important;
+}
+.animation-chucky {
+    animation-name: arriba;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+
+
+@keyframes arriba {    
+    25%  {  top:10px;}
+    50% {top:20px}
+    75%  {  top:10px;}
+    100% {top:0px}
 }
