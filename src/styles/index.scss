@@ -1,12 +1,61 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
 
-.navbar-title {
-    color: white !important;
+body {
+    // background-image: url("https://fondosmil.com/fondo/63700.jpg");
+    // background-repeat: no-repeat;
+    background: black
 }
-.nav-title {
-    margin-left: 100px;
+.img-title {
+    width: 45rem;
+    position: absolute;
+
+    
+    
 }
-.nav-titles {
-    margin-right: 100px;
+
+.contain-logo {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+.eyes-logo1 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    top: 50%;
+    left: 35%;
+    border-radius: 50%;
+}
+.eyes-logo2 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    top: 50%;
+    left: 60%;
+    border-radius: 50%;
+}
+// .eyes-logo::after {
+//     content: "";
+//     position: absolute;
+//     width: 30px;
+//     height: 30px;
+//     background-color: red;
+//     top: 100px;
+//     left: 100%;
+//     border-radius: 50%;
+// }
+.chucky {
+    width: 8rem;
+    cursor: pointer;
+    margin-top: 300px !important;
+}
+h1{
+    
+    color: red;
+}
+.img-cuchillo {
+    width: 3rem;
 }

@@ -1,63 +1,126 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar.jsx";
-import Jumbotron from "./Jumbotron.jsx";
 import Card from "./Card.jsx";
 import Footer from "./Footer.jsx";
+import { Container, Row, Col, Modal, Button } from "react-bootstrap";
+import hallowen from "../../img/hallowen.png";
+import chucky from "../../img/chucky.png";
+import Chucky from "./Chucky.js";
+import cuchillo from "../../img/cuchillo.png";
+import { array } from "prop-types";
 //include images into your bundle
 
 //create your first component
 export function Home() {
+	const [modalChucky, setModalChucky] = useState(false);
+	const [modalGameChuky, setModalGameChucky] = useState(false);
+	const [gameChuky, setGameChucky] = useState(false);
+
+	const modal = () => {
+		return (
+			<Modal.Dialog>
+				<Modal.Header>
+					<Modal.Title>Has depertado a chucky</Modal.Title>
+				</Modal.Header>
+
+				<Modal.Body>
+					<p>¿Truco o trato?</p>
+				</Modal.Body>
+
+				<Modal.Footer>
+					<Button
+						onClick={() => setModalChucky(false)}
+						variant="secondary">
+						Trato
+					</Button>
+					<Button
+						onClick={() => {
+							setModalChucky(false);
+							setModalGameChucky(true);
+						}}
+						variant="primary">
+						Truco
+					</Button>
+				</Modal.Footer>
+			</Modal.Dialog>
+		);
+	};
+	const cuchillos = () => {
+		let array = [];
+		for (let i = 1; i < 100; i++) {
+			array.push(
+				<span>
+					<img className="img-cuchillo" src={cuchillo}></img>
+				</span>
+			);
+		}
+		return array;
+	};
+
 	return (
-		<div className="">
-			<Navbar
-				title="Start Bootstrap"
-				link1="Home"
-				link2="About"
-				link3="Services"
-				link4="Contact"
-			/>
-			<Jumbotron
-				title="A Warn Welcome!"
-				text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
-				button="Call to Action!"
-			/>
-			<div className="container">
-				<div className="row">
-					<div className="col-3">
-						<Card
-							image="https://cdn.pixabay.com/photo/2017/09/05/10/20/business-2717066_960_720.jpg"
-							title="Card title"
-							text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
-							button="Find out more!"
-						/>
+		<Container>
+			<Row>
+				<Col xs={4}>
+					<div className="contain-logo">
+						<img
+							className="img-logo"
+							src="https://pbs.twimg.com/profile_images/1410575489681571840/AyfTF5db.jpg"></img>
+						<div className="eyes-logo1"></div>
+						<div className="eyes-logo2"></div>
 					</div>
-					<div className="col-3">
-						<Card
-							image="https://cdn.pixabay.com/photo/2017/07/31/14/45/code-2558224_960_720.jpg"
-							title="Card title"
-							text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
-							button="Find out more!"
-						/>
-					</div>
-					<div className="col-3">
-						<Card
-							image="https://cdn.pixabay.com/photo/2020/09/17/12/41/cafe-5579069_960_720.jpg"
-							title="Card title"
-							text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
-							button="Find out more!"
-						/>
-					</div>
-					<div className="col-3">
-						<Card
-							image="https://cdn.pixabay.com/photo/2019/07/12/18/48/code-4333398_960_720.jpg"
-							title="Card title"
-							text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
-							button="Find out more!"
-						/>
-					</div>
-				</div>
-			</div>
-			<Footer name="© 2021 Copyright David Berdiell " />
-		</div>
+				</Col>
+				<Col>
+					<img className="img-title" src={hallowen}></img>
+				</Col>
+				{/* <Col></Col> */}
+			</Row>
+			{gameChuky == true ? (
+				<Row className="mt-5">
+					<Col></Col>
+					<Col>
+						<img className="chucky" src={chucky}></img>
+					</Col>
+					<Col>{cuchillos()}</Col>
+				</Row>
+			) : (
+				<Row className="">
+					<Col></Col>
+					{modalChucky == true && modal()}
+					{modalGameChuky == true && (
+						<Modal.Dialog>
+							<Modal.Header>
+								<Modal.Title>Chucky viene a por ti</Modal.Title>
+							</Modal.Header>
+
+							<Modal.Body>
+								<p>
+									Tienes 20 segundos para huir, encuentra la
+									llave en uno de los cuchillos de chucky
+								</p>
+							</Modal.Body>
+
+							<Modal.Footer>
+								<Button
+									onClick={() => {
+										setModalGameChucky(false);
+										setGameChucky(true);
+									}}
+									variant="primary">
+									Entendido
+								</Button>
+							</Modal.Footer>
+						</Modal.Dialog>
+					)}
+					{}
+					<Col>
+						<img
+							onClick={() => setModalChucky(true)}
+							className="chucky"
+							src={chucky}></img>
+					</Col>
+					<Col></Col>
+				</Row>
+			)}
+		</Container>
 	);
 }
