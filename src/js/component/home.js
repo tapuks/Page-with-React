@@ -7,6 +7,8 @@ import hallowen from "../../img/hallowen.png";
 import chucky from "../../img/chucky3.png";
 import Chucky from "./Chucky.js";
 import cuchillo from "../../img/cuchillo.png";
+import murcielago from "../../img/murcielago1.gif";
+
 import { array } from "prop-types";
 //include images into your bundle
 
@@ -16,6 +18,7 @@ export function Home() {
 	const [modalGameChuky, setModalGameChucky] = useState(false);
 	const [gameChuky, setGameChucky] = useState(false);
 	const [contadorGameChuky, setContadorGameChucky] = useState(30);
+	const [hiddenCuchillos, setHiddenCuchillos] = useState([]);
 
 	const modal = () => {
 		return (
@@ -49,20 +52,45 @@ export function Home() {
 
 	const cuchillos = () => {
 		let array = [];
-		for (let i = 1; i < 100; i++) {
-			array.push(
-				<span className="mx-2">
-					<img
-						// ref={refchuchillo}
-						// onClick={}
-						className="img-cuchillo"
-						src={cuchillo}></img>
-				</span>
-			);
+		for (let i = 1; i < 40; i++) {
+			if (i % 2 == 0) {
+				array.push(
+					<span className="mx-2">
+						<img
+							onClick={() =>
+								setHiddenCuchillos([...hiddenCuchillos, i])
+							}
+							className={
+								hiddenCuchillos.includes(i)
+									? "img-cuchillo ocult"
+									: "img-cuchillo"
+							}
+							src={cuchillo}></img>
+					</span>
+				);
+			} else {
+				array.push(
+					<span className="mx-2">
+						<img
+							// ref={refchuchillo}
+							onClick={() =>
+								setHiddenCuchillos([...hiddenCuchillos, i])
+							}
+							className={
+								hiddenCuchillos.includes(i)
+									? "img-cuchillo ocult"
+									: "img-cuchillo"
+							}
+							src="https://us.123rf.com/450wm/photopotam/photopotam1603/photopotam160300003/53038036-un-cuchillo-de-cer%C3%A1mica-blanca-sobre-fondo-negro-que-refleja.jpg?ver=6"></img>
+					</span>
+				);
+			}
 		}
+		// setArrayCuchillos(array);
 		return array;
 	};
-
+	console.log("hiddencuchillos", hiddenCuchillos);
+	console.log("include", hiddenCuchillos.includes(1));
 	// useEffect(() => {
 	// 	if (gameChuky == true) {
 	// 		setInterval(() => {
@@ -85,7 +113,7 @@ export function Home() {
 	return (
 		<Container>
 			<Row>
-				<Col xs={4}>
+				<Col xs={3}>
 					<div className="contain-logo">
 						<img
 							className="img-logo"
@@ -97,6 +125,44 @@ export function Home() {
 				<Col>
 					<img className="img-title" src={hallowen}></img>
 				</Col>
+				<Col xs={3}>
+					<img
+						className="img-sangre"
+						src="https://w7.pngwing.com/pngs/137/93/png-transparent-macbeth-blood-king-duncan-blood-miscellaneous-text-photography.png"></img>
+				</Col>
+			</Row>
+			<Row className="mt-5">
+				<Col>
+					<div className="d-flex">
+						<img
+							className="img-murcielago mt-5 pt-5"
+							src={murcielago}></img>
+						<img className="img-murcielago" src={murcielago}></img>
+						<img
+							className="img-murcielago margtop40"
+							src={murcielago}></img>
+						<img
+							className="img-murcielago margintop20"
+							src={murcielago}></img>
+					</div>
+				</Col>
+				<Col>
+					{/* <img
+						className=""
+						src="https://cdn.yoamoloszapatos.com/wp-content/uploads/2019/10/07205140/source-3-1.gif"></img> */}
+				</Col>
+				{/* <Col>
+					<img className="img-murcielago" src={murcielago}></img>
+				</Col>
+				<Col>
+					<img className="img-murcielago" src={murcielago}></img>
+				</Col>
+				<Col>
+					<img className="img-murcielago" src={murcielago}></img>
+				</Col>
+				<Col>
+					<img className="img-murcielago" src={murcielago}></img>
+				</Col> */}{" "}
 			</Row>
 
 			{/* Game chucky */}

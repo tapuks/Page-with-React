@@ -10,17 +10,21 @@ body {
     background: black
 }
 .img-title {
-    width: 45rem;
+    width: 40rem;
     position: absolute;
-
-    
-    
+}
+.img-sangre {
+    width: 25rem;
+    height: 600px;
 }
 
 .contain-logo {
     position: relative;
     display: inline-block;
     text-align: center;
+}
+.img-logo {
+    width: 20rem;
 }
 .eyes-logo1 {
     position: absolute;
@@ -64,6 +68,10 @@ h1{
     width: 3rem;
     cursor: pointer;
 }
+// .img-cuchillo:hover {
+//     width: 4rem;
+    
+// }
 .row-game-chucky {
     margin-top: 200px !important;
 }
@@ -86,4 +94,17 @@ h1{
     50% {top:20px}
     75%  {  top:10px;}
     100% {top:0px}
+}
+.ocult{
+    display:none;
+    // background-image: none;
+}
+.img-murcielago {
+    width: 5rem;
+}
+.margtop40 {
+    margin-top: 40px;
+}
+.margtop50 {
+    margin-top: 50px;
 }
